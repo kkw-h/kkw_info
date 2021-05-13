@@ -2,7 +2,7 @@ name: Info
 
 on:
    push:
-     branches: master
+     branches: main
    gollum:
    workflow_dispatch:
    schedule:

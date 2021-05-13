@@ -11,6 +11,7 @@ BOT_NAME = 'KkwInfo'
 
 SPIDER_MODULES = ['KkwInfo.spiders']
 NEWSPIDER_MODULE = 'KkwInfo.spiders'
+LOG_LEVEL = 'WARNING'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -64,7 +65,7 @@ DEFAULT_REQUEST_HEADERS = {
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'KkwInfo.pipelines.DuplicatesPipeline': 300,
-   # 'KkwInfo.pipelines.SavePipeline': 301,
+   'KkwInfo.pipelines.SavePipeline': 301,
    'KkwInfo.pipelines.SendPipeline': 302,
 }
 
