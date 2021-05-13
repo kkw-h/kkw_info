@@ -2,7 +2,7 @@ import scrapy, datetime, urllib.parse
 
 
 class ChinafilmSpider(scrapy.Spider):
-    name = 'china_film'
+    name = 'china_films'
     allowed_domains = ['www.chinafilm.org.cn']
     start_urls = ['http://www.chinafilm.org.cn/HyAsp/Hy_Index/AjaxGetDateFunction.asp']
 

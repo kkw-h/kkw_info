@@ -2,7 +2,7 @@ import scrapy
 
 
 class AppleSupportSpider(scrapy.Spider):
-    name = 'apple_support'
+    name = 'apple_supports'
     allowed_domains = ['support.apple.com']
     start_urls = ['https://support.apple.com/zh-cn/service-programs']
 
