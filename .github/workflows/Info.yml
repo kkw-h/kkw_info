@@ -1,8 +1,8 @@
-name: AppleProcessing
+name: Info
 
 on:
    push:
-     branches: main
+     branches: master
    gollum:
    workflow_dispatch:
    schedule:
