@@ -1,0 +1,38 @@
+name: AppleProcessing
+
+on:
+   push:
+     branches: main
+   gollum:
+   workflow_dispatch:
+   schedule:
+       - cron: '0 1 * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          # Semantic version range syntax or exact version of a Python version
+          python-version: '3.x'
+          # Optional - x64 or x86 architecture, defaults to x64
+          architecture: 'x64'
+      # You can test your matrix by printing the current Python version
+      - name: 安装所需包
+        run: pip install -r requirements.txt
+      - name: 执行文件
+        env:
+          ES_HOST: ${{ secrets.ES_HOST }}
+          MSG_URL: ${{ secrets.MSG_URL }}
+          CHANIFY_TOKEN: ${{ secrets.CHANIFY_TOKEN }}
+        run: |
+          scrapy crawl oil_prices
+          scrapy crawl aliyun_security_notice
+          scrapy crawl apple_support
+          scrapy crawl china_film
+          scrapy crawl lottery
