@@ -41,7 +41,7 @@ class SendPipeline:
                 json = {
                     'link': item['url']
                 }
-            if spider.name == 'china_film':
+            if spider.name == 'china_films':
                 json = {
                     'text': item['date'] + '上映电影\n' + item['title']
                 }
