@@ -59,5 +59,6 @@ class SendPipeline:
                 json = {
                     'text': item['url'] + '\n 时间:' + item['date'] + '\n' + item['title']
                 }
+
             if json is not None:
                 send_msg(json)
