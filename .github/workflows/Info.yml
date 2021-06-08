@@ -25,6 +25,7 @@ jobs:
           ES_HOST: ${{ secrets.ES_HOST }}
           MSG_URL: ${{ secrets.MSG_URL }}
           CHANIFY_TOKEN: ${{ secrets.CHANIFY_TOKEN }}
+        run: python -V
       - name: 执行油价查询
         run: scrapy crawl oil_prices
       - name: 执行阿里云风险查询

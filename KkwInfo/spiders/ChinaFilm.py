@@ -22,6 +22,7 @@ class ChinafilmSpider(scrapy.Spider):
                 for Film in FilmList['Table'][0]['Info']:
                     date_str = str(datetime.datetime.now().year) + '/' + str(datetime.datetime.now().month) + '/' + str(
                         datetime.datetime.now().day)
+                    print(Film['FilmName'].replace('%u', '\\u').encode('utf-8').decode('unicode_escape'))
                     if date_str == Film['ShowDate']:
                         title_str = Film['FilmName'].replace('%u', '\\u').encode('utf-8').decode('unicode_escape')
                         title = urllib.parse.unquote(title_str, encoding='Windows-1252')
