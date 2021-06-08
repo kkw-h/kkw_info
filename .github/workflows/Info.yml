@@ -11,6 +11,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      ES_HOST: ${{ secrets.ES_HOST }}
+      MSG_URL: ${{ secrets.MSG_URL }}
+      CHANIFY_TOKEN: ${{ secrets.CHANIFY_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python 3.x
@@ -20,40 +24,14 @@ jobs:
           architecture: 'x64'
       - name: 安装所需包
         run: pip install -r requirements.txt
-      - name: 添加环境变量
-        env:
-          ES_HOST: ${{ secrets.ES_HOST }}
-          MSG_URL: ${{ secrets.MSG_URL }}
-          CHANIFY_TOKEN: ${{ secrets.CHANIFY_TOKEN }}
-        run: python -V
       - name: 执行油价查询
-        env:
-          ES_HOST: ${{ secrets.ES_HOST }}
-          MSG_URL: ${{ secrets.MSG_URL }}
-          CHANIFY_TOKEN: ${{ secrets.CHANIFY_TOKEN }}
         run: scrapy crawl oil_prices
       - name: 执行阿里云风险查询
-        env:
-          ES_HOST: ${{ secrets.ES_HOST }}
-          MSG_URL: ${{ secrets.MSG_URL }}
-          CHANIFY_TOKEN: ${{ secrets.CHANIFY_TOKEN }}
         run: scrapy crawl aliyun_security_notice
       - name: 执行苹果维修计划查询
-        env:
-          ES_HOST: ${{ secrets.ES_HOST }}
-          MSG_URL: ${{ secrets.MSG_URL }}
-          CHANIFY_TOKEN: ${{ secrets.CHANIFY_TOKEN }}
         run: scrapy crawl apple_supports
       - name: 执行电影查询
-        env:
-          ES_HOST: ${{ secrets.ES_HOST }}
-          MSG_URL: ${{ secrets.MSG_URL }}
-          CHANIFY_TOKEN: ${{ secrets.CHANIFY_TOKEN }}
         run: scrapy crawl china_films
       - name: 执行彩票查询
-        env:
-          ES_HOST: ${{ secrets.ES_HOST }}
-          MSG_URL: ${{ secrets.MSG_URL }}
-          CHANIFY_TOKEN: ${{ secrets.CHANIFY_TOKEN }}
         run: scrapy crawl lottery
 
