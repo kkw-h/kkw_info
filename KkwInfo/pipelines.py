@@ -41,7 +41,7 @@ class SendPipeline:
                 json = {
                     'link': item['url']
                 }
-            if spider.name == 'china_film':
+            if spider.name == 'china_films':
                 json = {
                     'text': item['date'] + '上映电影\n' + item['title']
                 }
@@ -59,5 +59,6 @@ class SendPipeline:
                 json = {
                     'text': item['url'] + '\n 时间:' + item['date'] + '\n' + item['title']
                 }
+
             if json is not None:
                 send_msg(json)
