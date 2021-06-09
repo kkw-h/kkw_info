@@ -6,20 +6,15 @@
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
-from elasticsearch7 import Elasticsearch, exceptions
-import hashlib, os
 from KkwInfo.util.Tool import send_msg
+from KkwInfo.util.Es import duplicates, save
 
-es = Elasticsearch(hosts=os.getenv("ES_HOST"))
 
 # 过滤数据
 class DuplicatesPipeline:
     def process_item(self, item, spider):
         if item:
-            id = hashlib.md5(item['id'].encode(encoding='UTF-8')).hexdigest()
-            try:
-                es.get(id=id, index=spider.name)
-            except exceptions.NotFoundError:
+            if not duplicates(spider.name, item['id']):
                 return item
 
 
@@ -27,8 +22,7 @@ class DuplicatesPipeline:
 class SavePipeline:
     def process_item(self, item, spider):
         if item is not None:
-            id = hashlib.md5(item['id'].encode(encoding='UTF-8')).hexdigest()
-            es.index(index=spider.name, body=item, id=id)
+            save(spider.name, item['id'], item)
             return item
 
 
@@ -59,6 +53,12 @@ class SendPipeline:
                 json = {
                     'text': item['url'] + '\n 时间:' + item['date'] + '\n' + item['title']
                 }
-
+            if spider.name == 'games':
+                game_company = ['腾讯', '网易', '米哈游', '哔哩哔哩', '雷霆', '凉屋']
+                for game in game_company:
+                    if game in item['publishing_unit'] or game in item['operation_unit']:
+                        json = {
+                            'text': f'{item["title"]} \n 类型:{item["declaration_category"]}\n 出版｜运营{item["publishing_unit"]}｜{item["operation_unit"]}\n 时间{item["date"]}'
+                        }
             if json is not None:
                 send_msg(json)
