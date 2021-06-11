@@ -29,6 +29,7 @@ class SavePipeline:
 # 发送消息
 class SendPipeline:
     def process_item(self, item, spider):
+        print(item)
         if item is not None:
             json = None
             if spider.name in ['apple_support']:
@@ -58,7 +59,8 @@ class SendPipeline:
                 for game in game_company:
                     if game in item['publishing_unit'] or game in item['operation_unit']:
                         json = {
-                            'text': f'{item["title"]} \n 类型:{item["declaration_category"]}\n 出版｜运营{item["publishing_unit"]}｜{item["operation_unit"]}\n 时间{item["date"]}'
+                            'text': f'{item["title"]} \n 出版｜运营{item["publishing_unit"]}｜{item["operation_unit"]}\n 时间{item["date"]}'
                         }
+                        print(json)
             if json is not None:
                 send_msg(json)
