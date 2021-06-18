@@ -59,8 +59,14 @@ class SendPipeline:
                 for game in game_company:
                     if game in item['publishing_unit'] or game in item['operation_unit']:
                         json = {
-                            'text': f'{item["title"]} \n 出版｜运营{item["publishing_unit"]}｜{item["operation_unit"]}\n 时间{item["date"]}'
+                            'title': {item["title"]},
+                            'text': f'出版｜运营{item["publishing_unit"]}｜{item["operation_unit"]}\n 时间{item["date"]}'
                         }
                         print(json)
+            if spider.name == 'beijing_eshow':
+                json = {
+                    'title': item['title'],
+                    'text': f'地址:{item["address"]} \n 时间:{item["time"]}'
+                }
             if json is not None:
                 send_msg(json)
