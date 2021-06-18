@@ -36,4 +36,6 @@ jobs:
         run: scrapy crawl lottery
       - name: 游戏审批信息
         run: scrapy crawl games
+      - name: 北京展会查询
+        run: scrapy crawl beijing_eshow
 
