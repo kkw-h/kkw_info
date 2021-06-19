@@ -16,3 +16,9 @@ def send_msg(json):
     url = chanify_host + chanify_token
     if json is not None:
         requests.post(url=url, json=json)
+
+
+def get_date(utc):
+    UTC_FORMAT = "%Y-%m-%dT%H:%M:%S.%fZ"
+    utc_time = datetime.datetime.strptime(utc, UTC_FORMAT)
+    return (utc_time + datetime.timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
