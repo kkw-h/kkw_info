@@ -38,4 +38,5 @@ jobs:
         run: scrapy crawl games
       - name: 北京展会查询
         run: scrapy crawl beijing_eshow
-
+      - name: Epic免费游戏领取
+        run: scrapy crawl epic_free_games

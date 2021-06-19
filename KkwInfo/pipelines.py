@@ -68,5 +68,10 @@ class SendPipeline:
                     'title': item['title'],
                     'text': f'地址:{item["address"]} \n 时间:{item["time"]}'
                 }
+            if spider.name == 'epic_free_games':
+                json = {
+                    'title': 'Epic免费游戏领取',
+                    'text': f'游戏:{item["title"]} \n开始时间:{item["start_date"]}'
+                }
             if json is not None:
                 send_msg(json)
