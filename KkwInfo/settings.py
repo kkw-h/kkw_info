@@ -11,8 +11,8 @@ BOT_NAME = 'KkwInfo'
 
 SPIDER_MODULES = ['KkwInfo.spiders']
 NEWSPIDER_MODULE = 'KkwInfo.spiders'
-LOG_LEVEL = 'WARNING'
-# LOG_LEVEL = 'DEBUG'
+# LOG_LEVEL = 'WARNING'
+LOG_LEVEL = 'DEBUG'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'KkwInfo (+http://www.yourdomain.com)'
@@ -42,6 +42,7 @@ RANDOMIZE_DOWNLOAD_DELAY = True
 DEFAULT_REQUEST_HEADERS = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'en',
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36'
 }
 
 # Enable or disable spider middlewares

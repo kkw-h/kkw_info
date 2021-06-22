@@ -1,5 +1,5 @@
 import scrapy, json
-from KkwInfo.util.Tool import get_date
+from KkwInfo.util.Tool import get_date_str
 
 
 class EpicfreegamesSpider(scrapy.Spider):
@@ -17,6 +17,6 @@ class EpicfreegamesSpider(scrapy.Spider):
                 game_list.append({
                     'id': info['title'],
                     'title': info['title'],
-                    'start_date': get_date(info['effectiveDate'])
+                    'start_date': get_date_str(info['effectiveDate'])
                 })
         return game_list
