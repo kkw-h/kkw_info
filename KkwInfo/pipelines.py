@@ -73,5 +73,10 @@ class SendPipeline:
                     'title': 'Epic免费游戏领取',
                     'text': f'游戏:{item["title"]} \n开始时间:{item["start_date"]}'
                 }
+            if spider.name == 'security_tencent':
+                json = {
+                    'title': item['title'],
+                    'text': f'链接:{item["url"]}'
+                }
             if json is not None:
                 send_msg(json)

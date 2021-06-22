@@ -40,3 +40,5 @@ jobs:
         run: scrapy crawl beijing_eshow
       - name: Epic免费游戏领取
         run: scrapy crawl epic_free_games
+      - name: TSRC安全情报平台
+        run: scrapy crawl security_tencent
