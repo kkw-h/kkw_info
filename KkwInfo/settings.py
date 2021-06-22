@@ -11,8 +11,8 @@ BOT_NAME = 'KkwInfo'
 
 SPIDER_MODULES = ['KkwInfo.spiders']
 NEWSPIDER_MODULE = 'KkwInfo.spiders'
-# LOG_LEVEL = 'WARNING'
-LOG_LEVEL = 'DEBUG'
+LOG_LEVEL = 'WARNING'
+# LOG_LEVEL = 'DEBUG'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'KkwInfo (+http://www.yourdomain.com)'
