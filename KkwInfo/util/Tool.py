@@ -23,5 +23,6 @@ def get_date_str(utc):
     utc_time = datetime.datetime.strptime(utc, UTC_FORMAT)
     return (utc_time + datetime.timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
 
+
 def get_division_list(lists: list, num: int):
     return [lists[i:i + num] for i in range(0, len(lists), num)]

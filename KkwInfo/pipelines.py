@@ -38,7 +38,10 @@ class SendPipeline:
                 }
             if spider.name == 'china_films':
                 json = {
-                    'text': item['date'] + '上映电影\n' + item['title']
+                    'title': item['title'],
+                    'text': f' 时间: {item["date"]} \n\n 主演:{item["KS_Starring"]} \n\n 导演:{item["KS_Director"]}'
+                            f' \n\n 编剧:{item["KS_Writers"]} \n\n 发行：{item["KS_TheIssuer"]} \n\n'
+                            f' 出品:{item["KS_Producers"]} \n\n 类型:{item["KS_Type"]} \n\n 简介:{item["ArticleContent"]}'
                 }
             if spider.name == 'lottery':
                 json = {
