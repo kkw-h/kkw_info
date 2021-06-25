@@ -1,4 +1,4 @@
-name: Info
+name: 爬虫脚本执行
 
 on:
    push:
