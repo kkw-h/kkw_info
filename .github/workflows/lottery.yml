@@ -18,5 +18,7 @@ jobs:
         with:
           python-version: '3.x'
           architecture: 'x64'
+      - name: 安装所需包
+        run: pip install -r requirements.txt
       - name: 执行彩票查询
         run: scrapy crawl lottery
