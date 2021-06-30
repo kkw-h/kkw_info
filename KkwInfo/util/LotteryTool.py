@@ -53,6 +53,6 @@ def contrast(lottery_codes):
 
 def is_send():
     tm_wday = time.strftime("%w", time.localtime())
-    if tm_wday in ['3', '5', '1']:
+    if tm_wday in ['2', '4', '7']:
         return True
     return False
