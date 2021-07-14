@@ -6,8 +6,9 @@
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
-from KkwInfo.util.Tool import send_msg
+from KkwInfo.util.Tool import send_msg, show_logs
 from KkwInfo.util.Es import duplicates, save
+from loguru import logger
 
 
 # 过滤数据
@@ -29,7 +30,7 @@ class SavePipeline:
 # 发送消息
 class SendPipeline:
     def process_item(self, item, spider):
-        print(item)
+        logger.info(item)
         if item is not None:
             json = None
             if spider.name in ['apple_support']:
@@ -65,7 +66,6 @@ class SendPipeline:
                             'title': {item["title"]},
                             'text': f'出版｜运营{item["publishing_unit"]}｜{item["operation_unit"]}\n 时间{item["date"]}'
                         }
-                        print(json)
             if spider.name == 'beijing_eshow':
                 json = {
                     'title': item['title'],

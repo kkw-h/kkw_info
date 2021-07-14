@@ -1,4 +1,5 @@
 import scrapy, datetime, urllib.parse, random, time
+from loguru import logger
 
 
 class ChinafilmSpider(scrapy.Spider):
@@ -15,6 +16,7 @@ class ChinafilmSpider(scrapy.Spider):
         yield scrapy.FormRequest(url=self.start_urls[0], formdata=data, callback=self.parse)
 
     def parse(self, response, **kwargs):
+        logger.info('电影上映信息')
         Films = []
         if response.body is not None:
             FilmList = eval(response.body)

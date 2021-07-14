@@ -17,3 +17,22 @@ def save(name, id, content):
     es_id = hashlib.md5(id.encode(encoding='UTF-8')).hexdigest()
     es.index(index=name, body=content, id=es_id)
     return True
+
+
+def search(name, type_id=45):
+    body = {
+        "query": {
+            "match": {
+                "type": {
+                    "query": type_id
+                }
+            }
+        },
+        "sort": {
+            "good": {
+                "order": "desc"
+            }
+        }
+    }
+
+    return es.search(index=name, body=body)

@@ -1,5 +1,6 @@
 import scrapy
 from KkwInfo.util.Es import duplicates, save
+from loguru import logger
 
 
 class GamesSpider(scrapy.Spider):
@@ -19,6 +20,7 @@ class GamesSpider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse, headers=self.headers, cb_kwargs=dict(code=code))
 
     def parse(self, response, code):
+        logger.info('获取国家新闻出版署游戏审核公告')
         page_list = response.css('div.ellipsis a::attr(href)').getall()
         title_list = response.css('div.ellipsis a::text').getall()
         num = 0

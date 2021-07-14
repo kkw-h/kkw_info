@@ -1,4 +1,5 @@
 import datetime, requests, os
+from loguru import logger
 
 
 def get_date():
@@ -26,3 +27,12 @@ def get_date_str(utc):
 
 def get_division_list(lists: list, num: int):
     return [lists[i:i + num] for i in range(0, len(lists), num)]
+
+
+def show_logs(text: str):
+    """
+    显示Log
+    :param text:
+    :return:
+    """
+    logger.info(text)
