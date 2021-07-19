@@ -82,4 +82,4 @@ class SendPipeline:
                     'text': f'链接:{item["url"]}'
                 }
             if json is not None:
-                send_msg(json)
+                send_msg(json, spider.name)
