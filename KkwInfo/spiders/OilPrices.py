@@ -1,5 +1,6 @@
 import scrapy
 from KkwInfo.util.Tool import get_date
+from loguru import logger
 
 class OilpricesSpider(scrapy.Spider):
     name = 'oil_prices'
@@ -10,6 +11,7 @@ class OilpricesSpider(scrapy.Spider):
     ]
 
     def parse(self, response, **kwargs):
+        logger.info('油价')
         data = []
         titles = response.selector.xpath("//div[@id='youjia']/dl/dt/text()").getall()
         prices = response.selector.xpath("//div[@id='youjia']/dl/dd/text()").getall()

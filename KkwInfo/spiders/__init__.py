@@ -1,4 +1,24 @@
-# This package will contain the spiders of your Scrapy project
-#
-# Please refer to the documentation for information on how to create and manage
-# your spiders.
+import os
+
+# 设置Token
+lottery_token = 'CIDPrYsGEiJBQUVWWlI1SlFBTkdDTlFBNVBXTEdFVE9QTjNITDZWN0NVIgsIAhoHbG90dGVyeSoiQUZNWjM3V0pTT0EyTVBYM1EzT0lCVURLWlZCTlpMVjVJVQ..MVGD6VeG_JW90iNxh7U2yMsXNenPjfFmVSDE8bfzeQY'
+os.environ.setdefault('LOTTERY', lottery_token)
+
+security_notice_token = 'CIDPrYsGEiJBQUVWWlI1SlFBTkdDTlFBNVBXTEdFVE9QTjNITDZWN0NVIhMIAhoPc2VjdXJpdHlfbm90aWNlKiJBRk1aMzdXSlNPQTJNUFgzUTNPSUJVREtaVkJOWkxWNUlV..VcPNffBMpi_KpdSy6pkea1xo1kFF9ILc4y1CXBvSTSQ'
+os.environ.setdefault('ALIYUN_SECURITY_NOTICE', security_notice_token)
+os.environ.setdefault('SECURITY_TENCENT', security_notice_token)
+
+apple_supports_token = 'CIDPrYsGEiJBQUVWWlI1SlFBTkdDTlFBNVBXTEdFVE9QTjNITDZWN0NVIhIIAhoOYXBwbGVfc3VwcG9ydHMqIkFGTVozN1dKU09BMk1QWDNRM09JQlVES1pWQk5aTFY1SVU..cvOk3SJd-7pblYSVLjzlgZxZY9U9G0U2Ip6Esj2F7YE'
+os.environ.setdefault('APPLE_SUPPORTS', apple_supports_token)
+
+beijing_eshow_token = 'CIDPrYsGEiJBQUVWWlI1SlFBTkdDTlFBNVBXTEdFVE9QTjNITDZWN0NVIhEIAhoNYmVpamluZ19lc2hvdyoiQUZNWjM3V0pTT0EyTVBYM1EzT0lCVURLWlZCTlpMVjVJVQ..S9AVk4C3ys3UB4K6nkcAp3k1yBlhRUEpr2soG-hEHzg'
+os.environ.setdefault('BEIJING_ESHOW', beijing_eshow_token)
+
+china_films_token = 'CIDPrYsGEiJBQUVWWlI1SlFBTkdDTlFBNVBXTEdFVE9QTjNITDZWN0NVIg8IAhoLY2hpbmFfZmlsbXMqIkFGTVozN1dKU09BMk1QWDNRM09JQlVES1pWQk5aTFY1SVU..GA-sw1eEhFROyPM1SHeTBaf5hmRcAhuhe64ZSV1IpeA'
+os.environ.setdefault('CHINA_FILMS', china_films_token)
+
+games_token = 'CIDPrYsGEiJBQUVWWlI1SlFBTkdDTlFBNVBXTEdFVE9QTjNITDZWN0NVIgkIAhoFZ2FtZXMqIkFGTVozN1dKU09BMk1QWDNRM09JQlVES1pWQk5aTFY1SVU..T-5B9SWgsB7pgsulxnyBMnJpRnjiiSpyl9YpIZNP1r0'
+os.environ.setdefault('GAMES', games_token)
+
+oil_prices_token = 'CIDPrYsGEiJBQUVWWlI1SlFBTkdDTlFBNVBXTEdFVE9QTjNITDZWN0NVIg4IAhoKb2lsX3ByaWNlcyoiQUZNWjM3V0pTT0EyTVBYM1EzT0lCVURLWlZCTlpMVjVJVQ..uEDOdVpy-H0FJzhBbHEIowHzgDT6kp0sSTo3k1skDsc'
+os.environ.setdefault('OIL_PRICES', oil_prices_token)

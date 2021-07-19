@@ -1,5 +1,6 @@
 import scrapy, json
 from KkwInfo.util.Tool import get_date_str
+from loguru import logger
 
 
 class EpicfreegamesSpider(scrapy.Spider):
@@ -9,6 +10,7 @@ class EpicfreegamesSpider(scrapy.Spider):
         'https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?locale=zh-CN&country=US&allowCountries=US']
 
     def parse(self, response, **kwargs):
+        logger.info('Epic免费游戏')
         data = json.loads(response.body)
         lists = data['data']['Catalog']['searchStore']['elements']
         game_list = []

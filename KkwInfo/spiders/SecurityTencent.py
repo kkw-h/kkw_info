@@ -1,5 +1,6 @@
 import scrapy, datetime
 from KkwInfo.util.Tool import get_division_list
+from loguru import logger
 
 class SecuritytencentSpider(scrapy.Spider):
     name = 'security_tencent'
@@ -7,6 +8,7 @@ class SecuritytencentSpider(scrapy.Spider):
     start_urls = ['https://security.tencent.com/index.php/ti']
 
     def parse(self, response):
+        logger.info('腾讯云安全公告')
         titles = response.xpath("//tbody[@class='ti-table-content']/tr/td/text()")
         content_url = response.xpath("//tbody[@class='ti-table-content']/tr/td/a/@href")
         titles = get_division_list(titles, 5)

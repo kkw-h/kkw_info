@@ -1,4 +1,5 @@
 import scrapy, datetime
+from loguru import logger
 
 
 class BeijingEshowSpider(scrapy.Spider):
@@ -7,6 +8,7 @@ class BeijingEshowSpider(scrapy.Spider):
     start_urls = ['http://beijing.eshow365.com/']
 
     def parse(self, response, **kwargs):
+        logger.info('获取北京展会信息')
         titles = response.xpath("//ul[@id='ul1']/li/a[@class='zhtitle']/text()").getall()
         address = response.xpath("//ul[@id='ul1']/li/a[@class='cg']/text()").getall()
         times = response.xpath("//ul[@id='ul1']/li/span[@class='time']/text()").getall()
