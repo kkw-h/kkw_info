@@ -1,4 +1,4 @@
-name: 彩票查询
+name: 微博热度
 
 on:
    workflow_dispatch:
