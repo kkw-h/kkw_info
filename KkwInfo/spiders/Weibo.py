@@ -19,6 +19,7 @@ class WeiboSpider(scrapy.Spider):
                 int(id)
                 lists.append({
                     'id': f'{date}|{id}',
+                    'sort': id,
                     'title': contents[num + 1],
                     'heat': int(heats[num]),
                     'date': date
