@@ -20,5 +20,7 @@ jobs:
           architecture: 'x64'
       - name: 安装所需包
         run: pip install -r requirements.txt
+      - name: 调整时区
+        run: timedatectl set-timezone "Asia/Shanghai"
       - name: 执行彩票查询
         run: scrapy crawl lottery
