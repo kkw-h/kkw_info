@@ -11,6 +11,7 @@ jobs:
       ES_HOST: ${{ secrets.ES_HOST }}
       MSG_URL: ${{ secrets.MSG_URL }}
       CHANIFY_TOKEN: ${{ secrets.CHANIFY_TOKEN }}
+      TZ: Asia/Shanghai
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python 3.x
@@ -20,7 +21,5 @@ jobs:
           architecture: 'x64'
       - name: 安装所需包
         run: pip install -r requirements.txt
-      - name: 调整时区
-        run: timedatectl set-timezone "Asia/Shanghai"
       - name: 执行彩票查询
         run: scrapy crawl lottery
