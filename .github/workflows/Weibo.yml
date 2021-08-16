@@ -1,0 +1,24 @@
+name: 彩票查询
+
+on:
+   workflow_dispatch:
+   schedule:
+       - cron: '*/30 * * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      ES_HOST: ${{ secrets.ES_HOST }}
+      MSG_URL: ${{ secrets.MSG_URL }}
+      CHANIFY_TOKEN: ${{ secrets.CHANIFY_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
+      - name: 安装所需包
+        run: pip install -r requirements.txt
+      - name: 执行微博
+        run: scrapy crawl weibo
