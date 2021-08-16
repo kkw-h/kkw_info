@@ -81,5 +81,12 @@ class SendPipeline:
                     'title': item['title'],
                     'text': f'链接:{item["url"]}'
                 }
+            if spider.name == 'weibo':
+                if 8000000 < item['heat']:
+                    json = {
+                        'title': item['title'],
+                        'text': f"热度:{item['heat']} \n时间:{item['date']}"
+                    }
+
             if json is not None:
                 send_msg(json, spider.name)

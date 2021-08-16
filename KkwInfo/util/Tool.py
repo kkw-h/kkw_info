@@ -18,6 +18,7 @@ def send_msg(json, name):
         chanify_token = os.getenv(name.swapcase())
     else:
         chanify_token = os.getenv('CHANIFY_TOKEN')
+
     url = chanify_host + chanify_token
     if json is not None:
         requests.post(url=url, json=json)

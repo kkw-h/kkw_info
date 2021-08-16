@@ -22,3 +22,6 @@ os.environ.setdefault('GAMES', games_token)
 
 oil_prices_token = 'CIDPrYsGEiJBQUVWWlI1SlFBTkdDTlFBNVBXTEdFVE9QTjNITDZWN0NVIg4IAhoKb2lsX3ByaWNlcyoiQUZNWjM3V0pTT0EyTVBYM1EzT0lCVURLWlZCTlpMVjVJVQ..uEDOdVpy-H0FJzhBbHEIowHzgDT6kp0sSTo3k1skDsc'
 os.environ.setdefault('OIL_PRICES', oil_prices_token)
+
+weibo_token = 'CICjwYwGEiJBQUVWWlI1SlFBTkdDTlFBNVBXTEdFVE9QTjNITDZWN0NVIgkIAhoFd2VpYm8qIkFGTVozN1dKU09BMk1QWDNRM09JQlVES1pWQk5aTFY1SVU..7aO0ex36dcDii8RvxIyuRDqPMGsRU5e5Jmgs-kmLgPQ'
+os.environ.setdefault('WEIBO', weibo_token)

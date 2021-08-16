@@ -2,6 +2,7 @@ import scrapy, datetime
 from KkwInfo.util.Tool import get_division_list
 from loguru import logger
 
+
 class SecuritytencentSpider(scrapy.Spider):
     name = 'security_tencent'
     allowed_domains = ['security.tencent.com']
@@ -19,7 +20,7 @@ class SecuritytencentSpider(scrapy.Spider):
         for title in titles:
             if date == title[1]:
                 list.append({
-                    'id': title+content_url[num],
+                    'id': title + content_url[num],
                     'title': titles,
                     'url': content_url[num]
                 })
