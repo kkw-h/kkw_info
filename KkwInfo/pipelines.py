@@ -82,7 +82,7 @@ class SendPipeline:
                     'text': f'链接:{item["url"]}'
                 }
             if spider.name == 'weibo':
-                if 8000000 < item['heat']:
+                if 5000000 < item['heat']:
                     json = {
                         'title': item['title'],
                         'text': f"热度:{item['heat']} \n时间:{item['date']}"
