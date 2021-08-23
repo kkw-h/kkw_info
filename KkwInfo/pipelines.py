@@ -9,6 +9,7 @@ from itemadapter import ItemAdapter
 from KkwInfo.util.Tool import send_msg, show_logs
 from KkwInfo.util.Es import duplicates, save
 from loguru import logger
+from urllib import parse
 
 
 # 过滤数据
@@ -83,9 +84,13 @@ class SendPipeline:
                 }
             if spider.name == 'weibo':
                 if 5000000 < item['heat']:
+                    title = parse.quote(f"#{item['title']}#")
                     json = {
                         'title': item['title'],
-                        'text': f"热度:{item['heat']} \n时间:{item['date']}"
+                        'text': f"热度:{item['heat']} \n时间:{item['date']}",
+                        'actions': [
+                            f"前往微博|sinaweibo://searchall?luicode=10000360&lfid=OP_1116166085&q={title}&launchid=10000360-OP_1116166085"
+                        ]
                     }
 
             if json is not None:
