@@ -83,7 +83,7 @@ class SendPipeline:
                     'text': f'链接:{item["url"]}'
                 }
             if spider.name == 'weibo':
-                if 5000000 < item['heat']:
+                if 4000000 < item['heat']:
                     title = parse.quote(f"#{item['title']}#")
                     json = {
                         'title': item['title'],
